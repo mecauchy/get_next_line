@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:55:59 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/11 19:48:14 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:29:37 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*ft_read_to_next_str(int fd, char *next_str)
 	int		rd_bytes;
 
 	buff = (char *)malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+	rd_bytes = -1;
 	if (!buff)
 		return (NULL);
 	while (!(ft_strchr(next_str, '\n')) && rd_bytes != 0)
@@ -58,7 +59,7 @@ char	*ft_read_to_next_str(int fd, char *next_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		next_str = ft_strjoin(next_str, buff, rd_bytes); //rd_bytes delzte
+		next_str = ft_strjoin(next_str, buff);
 	}
 	free(buff);
 	return (next_str);
@@ -91,10 +92,10 @@ char	*ft_new_str(char *next_str)
 	return (str);
 }
 
-char	*ft_get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	char		*ret;
-	static char	*next_str;
+	static char	*next_str = NULL;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

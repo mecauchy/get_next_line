@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:03:55 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/11 13:03:57 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:56:06 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 
@@ -26,11 +27,12 @@
 
 char	*ft_strchr(char *str, int c);
 char	*ft_get_last(char *ret);
-char	*ft_strjoin(char *next_str, char *buff, int rd_bytes);
+char	*ft_strjoin(char *next_str, char *buff);
 char	*ft_get_line(char *next_str);
 char	*ft_read_to_next_str(int fd, char *next_str);
 char	*ft_new_str(char *next_str);
-char	*ft_get_next_line(int fd);
+char	*get_next_line(int fd);
+char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *str);
 
 #endif

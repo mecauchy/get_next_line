@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:22:45 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/11 12:36:32 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:29:14 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(char *s1)
+{
+	char	*ret;
+	int		i;
+
+	i = 0;
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (!ret)
+		return (NULL);
+	while (s1[i])
+	{
+		ret[i] = s1[i];
+		i++;
+	}
+	return (ret);
 }
 
 char	*ft_strchr(char *str, int c)
@@ -38,35 +55,32 @@ char	*ft_strchr(char *str, int c)
 	return (0);
 }
 
-char	*ft_get_last(char *ret)
-{
-	int	i;
-
-	i = 0;
-	while (ret[i])
-	{
-		i++;
-	}
-	return (&ret[i]);
-}
-
-char	*ft_strjoin(char *next_str, char *buff, int rd_bytes)
+char	*ft_strjoin(char *next_str, char *buff)
 {
 	int		i;
+	int		j;
 	char	*str;
-	char	*ret;
 
-	ret = 0;
-	str = malloc(sizeof(char *) * (rd_bytes + 1));
+	i = 0;
+	j = 0;
+	if (!next_str)
+		return (ft_strdup(buff));
+	str = malloc(sizeof(char *) * (ft_strlen(next_str) + ft_strlen(buff) + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (buff[i] && i < rd_bytes && next_str[i])
+	while (next_str[i])
 	{
-		ret = &buff[i];
+		str[j] = next_str[i];
 		i++;
+		j++;
 	}
-	ret[i] = '\n';
-	str = ft_get_last(ret);
+	i = 0;
+	while (buff[i])
+	{
+		str[j] = buff[i];
+		i++;
+		j++;
+	}
+	free(next_str);
 	return (str);
 }
