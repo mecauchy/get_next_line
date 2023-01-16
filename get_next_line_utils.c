@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:22:45 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/16 10:58:15 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:24:11 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_strjoin(char *next_str, char *buff)
 	j = 0;
 	if (!next_str)
 		return (ft_strdup(buff));
-	str = malloc(sizeof(char *) * (ft_strlen(next_str) + ft_strlen(buff) + 1));
+	str = (char *)malloc(sizeof(char *) * (ft_strlen(next_str) + ft_strlen(buff) + 1));
 	if (!str)
 		return (NULL);
 	while (next_str[i])

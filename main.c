@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:28:06 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/16 11:00:44 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:36:28 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main(int ac, char **av)
 	int		fd;
 
 	fd = open(av[1], O_RDONLY);
-	do
+	line = get_next_line(fd);
+	for (int i = 0; i < 5; i++)
 	{
-		line = get_next_line(fd);
-		if (line)
-			printf("%s", line);
+		printf("%s", line);
 		free(line);
-	} while (line);
+		line = get_next_line(fd);
+	}
 	free(line);
 	close(fd);
 	return (0);
