@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:55:59 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/16 13:16:31 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:51:03 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ char	*ft_new_str(char *next_str)
 	while (next_str[i] && next_str[i] != '\n')
 		i++;
 	if (!next_str || !next_str[i + 1])
+	{
+		free(next_str);
 		return (NULL);
+	}
 	str = (char *)malloc(sizeof(char *) * (ft_strlen(next_str) - i + 1));
 	if (!str)
 		return (NULL);
