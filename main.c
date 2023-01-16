@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:28:06 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/13 19:25:45 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:00:44 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(int ac, char **av)
 {
+	(void)ac;
 	char	*line;
 	int		fd;
 
