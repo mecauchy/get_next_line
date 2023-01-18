@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:55:59 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/16 17:51:03 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:36:18 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_get_line(char *next_str)
 		str[i] = next_str[i];
 		i++;
 	}
-	if (next_str[i] == '\n')
+	if (next_str[i] && next_str[i] == '\n')
 	{
 		str[i] = next_str[i];
 		i++;
@@ -74,7 +74,7 @@ char	*ft_new_str(char *next_str)
 	i = 0;
 	while (next_str[i] && next_str[i] != '\n')
 		i++;
-	if (!next_str || !next_str[i + 1])
+	if (!next_str[i])
 	{
 		free(next_str);
 		return (NULL);
@@ -85,11 +85,7 @@ char	*ft_new_str(char *next_str)
 	i++;
 	j = 0;
 	while (next_str[i])
-	{
-		str[j] = next_str[i];
-		j++;
-		i++;
-	}
+		str[j++] = next_str[i++];
 	str[j] = '\0';
 	free(next_str);
 	return (str);
