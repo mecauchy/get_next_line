@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:55:59 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/18 17:36:18 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:47:43 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_get_line(char *next_str)
 		return (NULL);
 	while (next_str[i] && next_str[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char *) * (i + 2));
+	str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -45,7 +45,7 @@ char	*ft_read_to_next_str(int fd, char *next_str)
 	char	*buff;
 	int		rd_bytes;
 
-	buff = (char *)malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	rd_bytes = -1;
 	if (!buff)
 		return (NULL);
@@ -79,7 +79,7 @@ char	*ft_new_str(char *next_str)
 		free(next_str);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char *) * (ft_strlen(next_str) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen(next_str) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

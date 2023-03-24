@@ -6,7 +6,7 @@
 /*   By: mecauchy <mecauchy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:03:57 by mecauchy          #+#    #+#             */
-/*   Updated: 2023/01/18 15:15:13 by mecauchy         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:08:22 by mecauchy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # ifndef BUFFER_SIZE
 
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 42
 
 # endif
 
